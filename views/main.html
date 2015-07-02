@@ -1,4 +1,6 @@
 <p>Enter your location: </p>
 <input type="text" name="getAddress" value="" placeholder="address" ng-model="address">
-<input type="text" name="getTime" value="" placeholder="time" >
+<input type="text" name="getTime" value="" placeholder="time" ng-model="time">
 <button type="button" name="button" ng-click="getWeather(address, time)">Submit Request</button>
+
+<p>Current Tempature: {{data.currently.temperature}}</p>
