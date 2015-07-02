@@ -15,6 +15,9 @@
               var longitude = results[0].geometry.location.lng();
               WeatherService.read(latitude, longitude, time).success(function(data){
                 $scope.data = data;
+                console.log()
+                //http://maps.googleapis.com/maps/api/geocode/json?latlng=32.708767,-79.95284509999999&sensor=true
+                console.log($scope.data);
               });
             }
           });
