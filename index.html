@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular App</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body ng-app = "weatherApp">
+
+  <div ng-controller = "MainController">
+    <ng-view>
+    </ng-view>
+  </div>
+
+</body>
+
+
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="service.js"></script>
+<script type="text/javascript" src="controller.js"></script>
+
+</html>
