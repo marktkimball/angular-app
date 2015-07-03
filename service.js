@@ -7,11 +7,11 @@
 
       var getWeather = function(lat, long, time){
         if(time){
-          return $http.jsonp(url + '/' + lat + ',' + long + ',' + time + '?callback=JSON_CALLBACK');
+          return $http.jsonp(url + '/' + lat + ',' + long + ',' + time + '?callback=JSON_CALLBACK');;
         }else{
           return $http.jsonp(url + '/' + lat + ',' + long + '?callback=JSON_CALLBACK');
         };
-      }
+      };
 
       return{
         read: getWeather

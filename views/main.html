@@ -1,7 +1,11 @@
-<p>Enter your location: </p>
-<input type="text" name="getAddress" value="" placeholder="address" ng-model="address">
-<input type="text" name="getTime" value="" placeholder="time" ng-model="time">
-<button type="button" name="button" ng-click="getWeather(address, time)">Submit Request</button>
+<div class='weatherView'>
+  <h2>{{displayLocation}}</h2>
+  <h2>{{currentTemperature}}</h2>
+  <p>Feels like: {{apparentTemperature}}</p>
 
-<p>Current Tempature: {{data.currently.temperature}}</p>
-<p>Feels like: {{data.currently.apparentTemperature}}</p>
+  <p>Enter your location: </p>
+  <input type="text" name="getAddress" value="" placeholder="address" ng-model="address">
+  <input type="text" name="getTime" value="" placeholder="time" ng-model="time">
+  <button type="button" name="button" ng-click="getWeather(address, time)">Submit Request</button>
+  <button type="button" name="button" ng-click="getCurrentLocationWeather()">Current Location Weather</button>
+</div>
