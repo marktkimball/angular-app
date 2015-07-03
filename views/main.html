@@ -1,11 +1,35 @@
 <div class='weatherView'>
+  <h1>Weather AngularJS</h1>
   <h2>{{displayLocation}}</h2>
+  <div class='clearDay hide'></div>
+  <div class='clearNight hide'></div>
+  <div class='rain hide'></div>
+  <div class='snow hide'></div>
+  <div class='sleet hide'></div>
+  <div class='wind hide'></div>
+  <div class='fog hide'></div>
+  <div class='cloudy hide'></div>
+  <div class='partlyCloudyDay hide'></div>
+  <div class='partlyCloudyNight hide'></div>
+  <div ng-class="icon === 'clearDay' ? 'clearDay' : 'hide'"></div>
+  <div ng-class="icon === 'clearNight' ? 'clearNight' : 'hide'"></div>
+  <div ng-class="icon === 'rain' ? 'rain' : 'hide'"></div>
+  <div ng-class="icon === 'snow' ? 'snow' : 'hide'"></div>
+  <div ng-class="icon === 'sleet' ? 'sleet' : 'hide'"></div>
+  <div ng-class="icon === 'wind' ? 'wind' : 'hide'"></div>
+  <div ng-class="icon === 'fog' ? 'fog' : 'hide'"></div>
+  <div ng-class="icon === 'cloudy' ? 'cloudy' : 'hide'"></div>
+  <div ng-class="icon === 'partlyCloudyDay' ? 'partlyCloudyDay' : 'hide'"></div>
+  <div ng-class="icon === 'partlyCloudyNight' ? 'partlyCloudyNight' : 'hide'"></div>
   <h2>{{currentTemperature}}</h2>
   <p>Feels like: {{apparentTemperature}}</p>
 
-  <p>Enter your location: </p>
-  <input type="text" name="getAddress" value="" placeholder="address" ng-model="address">
-  <input type="text" name="getTime" value="" placeholder="time" ng-model="time">
-  <button type="button" name="button" ng-click="getWeather(address, time)">Submit Request</button>
-  <button type="button" name="button" ng-click="getCurrentLocationWeather()">Current Location Weather</button>
+  <ul>
+    <li><input class="form-control" type="text" name="getAddress" value="" placeholder="Search city, zip or place" ng-model="address"></li>
+    <li><input class="form-control" type="text" name="getTime" value="" placeholder="time (optional)" ng-model="time"></li>
+  </ul>
+  <ul>
+    <li><button class="btn btn-default" type="button" name="button" ng-click="getWeather(address, time)">Submit Request</button></li>
+    <li><button class="btn btn-default" type="button" name="button" ng-click="getCurrentLocationWeather()">Current Location Weather</button></li>
+  <ul>
 </div>

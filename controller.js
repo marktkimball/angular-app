@@ -69,11 +69,15 @@
               apparentTemperature = Math.round(apparentTemperature).toString().concat('°');
               $scope.currentTemperature = currentTemperature;
               $scope.apparentTemperature = apparentTemperature;
+
+              $scope.icon = data.currently.icon;
+
+              $scope.data = data;
               console.log($scope.data);
             });
           });
         }
 
-        $scope.init();
+        // $scope.init();
     });
 })();
