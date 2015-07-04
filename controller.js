@@ -17,6 +17,7 @@
           if (status == google.maps.GeocoderStatus.OK) {
               var latitude = results[0].geometry.location.lat();
               var longitude = results[0].geometry.location.lng();
+
               WeatherService.read(latitude, longitude, time).success(function(data){
                 var displayLocation = "";
                 if(results.length === 1){
@@ -29,10 +30,18 @@
                     }
                   };
                 }
-
-                console.log(results);
                 $scope.displayLocation = displayLocation;
                 console.log($scope.displayLocation);
+                $scope.data = data;
+                var currentTemperature = data.currently.temperature;
+                currentTemperature = Math.round(currentTemperature).toString().concat('°');
+                var apparentTemperature = data.currently.apparentTemperature;
+                apparentTemperature = Math.round(apparentTemperature).toString().concat('°');
+                $scope.currentTemperature = currentTemperature;
+                $scope.apparentTemperature = apparentTemperature;
+
+                $scope.icon = data.currently.icon;
+
                 $scope.data = data;
                 console.log($scope.data);
               });
@@ -61,7 +70,7 @@
               console.log($scope.displayLocation);
             });
 
-            WeatherService.read(position.coords.latitude, position.coords.longitude).success(function(data){
+            WeatherService.read(lat, lng).success(function(data){
               $scope.data = data;
               var currentTemperature = data.currently.temperature;
               currentTemperature = Math.round(currentTemperature).toString().concat('°');
@@ -71,6 +80,19 @@
               $scope.apparentTemperature = apparentTemperature;
 
               $scope.icon = data.currently.icon;
+
+              var days = {}
+              var days.tomorrow = new Date(data.daily.data[1].time * 1000).getDay();
+              var days.twoDays = new Date(data.daily.data[2].time * 1000).getDay();
+              var days.threeDays = new Date(data.daily.data[3].time * 1000).getDay();
+
+              function nameOfDay(day){
+                if(day)
+              }
+
+              $scope.tomorrow = days.tomorrow;
+              $scope.twoDays = days.twoDays;
+              $scope.threeDays = days.threeDays;
 
               $scope.data = data;
               console.log($scope.data);
