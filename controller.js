@@ -35,11 +35,28 @@
                 var currentTemperature = data.currently.temperature;
                 currentTemperature = Math.round(currentTemperature).toString().concat('°');
                 var apparentTemperature = data.currently.apparentTemperature;
-                apparentTemperature = Math.round(apparentTemperature).toString().concat('°');
+                apparentTemperature = "Feels like " + Math.round(apparentTemperature).toString().concat('°');
                 $scope.currentTemperature = currentTemperature;
                 $scope.apparentTemperature = apparentTemperature;
+                $scope.precipProbability = (Math.round(data.currently.precipProbability * 100)).toString().concat('% chance of precip.');
+                $scope.summary = (data.daily.data[0].summary);
 
                 $scope.icon = data.currently.icon;
+
+
+                var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                var days = [];
+                days.push({day: daysOfWeek[new Date(data.daily.data[1].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[1].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[1].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[1].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[1].precipProbability * 100)).toString().concat('%')});
+                days.push({day: daysOfWeek[new Date(data.daily.data[2].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[2].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[2].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[2].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[2].precipProbability * 100)).toString().concat('%')});
+                days.push({day: daysOfWeek[new Date(data.daily.data[3].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[3].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[3].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[3].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[3].precipProbability * 100)).toString().concat('%')});
+                days.push({day: daysOfWeek[new Date(data.daily.data[4].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[4].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[4].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[4].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[4].precipProbability * 100)).toString().concat('%')});
+                days.push({day: daysOfWeek[new Date(data.daily.data[5].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[5].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[5].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[5].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[5].precipProbability * 100)).toString().concat('%')});
+
+                $scope.tomorrow = days[0];
+                $scope.twoDays = days[1];
+                $scope.threeDays = days[2];
+                $scope.fourDays = days[3];
+                $scope.fiveDays = days[4];
 
                 $scope.data = data;
                 console.log($scope.data);
@@ -74,21 +91,27 @@
               var currentTemperature = data.currently.temperature;
               currentTemperature = Math.round(currentTemperature).toString().concat('°');
               var apparentTemperature = data.currently.apparentTemperature;
-              apparentTemperature = Math.round(apparentTemperature).toString().concat('°');
+              apparentTemperature = "Feels like " + Math.round(apparentTemperature).toString().concat('°');
               $scope.currentTemperature = currentTemperature;
               $scope.apparentTemperature = apparentTemperature;
+              $scope.precipProbability = (Math.round(data.currently.precipProbability * 100)).toString().concat('% chance of precip.');
+              $scope.summary = (data.daily.data[0].summary);
 
               $scope.icon = data.currently.icon;
 
               var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
               var days = [];
-              days.push({day: daysOfWeek[new Date(data.daily.data[1].time * 1000).getDay()], dayHigh: Math.round(data.daily.data[1].temperatureMax).toString().concat('°'), dayLow: Math.round(data.daily.data[1].temperatureMin).toString().concat('°')});
-              days.push({day: daysOfWeek[new Date(data.daily.data[2].time * 1000).getDay()], dayHigh: Math.round(data.daily.data[2].temperatureMax).toString().concat('°'), dayLow: Math.round(data.daily.data[2].temperatureMin).toString().concat('°')});
-              days.push({day: daysOfWeek[new Date(data.daily.data[3].time * 1000).getDay()], dayHigh: Math.round(data.daily.data[3].temperatureMax).toString().concat('°'), dayLow: Math.round(data.daily.data[3].temperatureMin).toString().concat('°')});
+              days.push({day: daysOfWeek[new Date(data.daily.data[1].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[1].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[1].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[1].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[1].precipProbability * 100)).toString().concat('%')});
+              days.push({day: daysOfWeek[new Date(data.daily.data[2].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[2].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[2].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[2].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[2].precipProbability * 100)).toString().concat('%')});
+              days.push({day: daysOfWeek[new Date(data.daily.data[3].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[3].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[3].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[3].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[3].precipProbability * 100)).toString().concat('%')});
+              days.push({day: daysOfWeek[new Date(data.daily.data[4].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[4].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[4].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[4].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[4].precipProbability * 100)).toString().concat('%')});
+              days.push({day: daysOfWeek[new Date(data.daily.data[5].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[5].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[5].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[5].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[5].precipProbability * 100)).toString().concat('%')});
 
               $scope.tomorrow = days[0];
               $scope.twoDays = days[1];
               $scope.threeDays = days[2];
+              $scope.fourDays = days[3];
+              $scope.fiveDays = days[4];
 
               $scope.data = data;
               console.log($scope.data);
