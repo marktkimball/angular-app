@@ -6,13 +6,30 @@
   <p>Feels like: {{apparentTemperature}}</p>
   <h3>3 - Day Forecast</h3>
   <ul>
-    <li>{{tomorrow}}</li>
-    <li>{{twoDays}}</li>
-    <li>{{threeDays}}</li>
+    <li class="threeDayForecast">
+      <ul>
+        <li>{{tomorrow.dayHigh}}</li>
+        <li>{{tomorrow.dayLow}}</li>
+        <li>{{tomorrow.day}}</li>
+      </ul>
+    </li>
+    <li class="threeDayForecast">
+      <ul>
+        <li>{{twoDays.dayHigh}}</li>
+        <li>{{twoDays.dayLow}}</li>
+        <li>{{twoDays.day}}</li>
+      </ul>
+    </li>
+    <li class="threeDayForecast">
+      <ul>
+        <li>{{threeDays.dayHigh}}</li>
+        <li>{{threeDays.dayLow}}</li>
+        <li>{{threeDays.day}}</li>
+      </ul>
+    </li>
   </ul>
   <ul>
     <li><input class="form-control" type="text" name="getAddress" value="" placeholder="Search city, zip or place" ng-model="address"></li>
-    <!-- <li><input class="form-control" type="text" name="getTime" value="" placeholder="time (optional)" ng-model="time"></li> -->
     <li><button class="btn btn-default" type="button" name="button" ng-click="getWeather(address, time)">Submit Request</button></li>
     <li><button class="btn btn-default" type="button" name="button" ng-click="getCurrentLocationWeather()">Current Location Weather</button></li>
   <ul>

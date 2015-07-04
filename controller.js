@@ -7,8 +7,7 @@
           $scope.getCurrentLocationWeather();
         }
 
-        $scope.getWeather = function(newAddress, time){
-          var time = Math.floor(time/1000);
+        $scope.getWeather = function(newAddress){
           var addressString = newAddress;
           var geocoder = new google.maps.Geocoder();
 
@@ -18,7 +17,7 @@
               var latitude = results[0].geometry.location.lat();
               var longitude = results[0].geometry.location.lng();
 
-              WeatherService.read(latitude, longitude, time).success(function(data){
+              WeatherService.read(latitude, longitude).success(function(data){
                 var displayLocation = "";
                 if(results.length === 1){
                   displayLocation = results[0].formatted_address;
@@ -81,18 +80,15 @@
 
               $scope.icon = data.currently.icon;
 
-              var days = {}
-              var days.tomorrow = new Date(data.daily.data[1].time * 1000).getDay();
-              var days.twoDays = new Date(data.daily.data[2].time * 1000).getDay();
-              var days.threeDays = new Date(data.daily.data[3].time * 1000).getDay();
+              var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+              var days = [];
+              days.push({day: daysOfWeek[new Date(data.daily.data[1].time * 1000).getDay()], dayHigh: Math.round(data.daily.data[1].temperatureMax).toString().concat('°'), dayLow: Math.round(data.daily.data[1].temperatureMin).toString().concat('°')});
+              days.push({day: daysOfWeek[new Date(data.daily.data[2].time * 1000).getDay()], dayHigh: Math.round(data.daily.data[2].temperatureMax).toString().concat('°'), dayLow: Math.round(data.daily.data[2].temperatureMin).toString().concat('°')});
+              days.push({day: daysOfWeek[new Date(data.daily.data[3].time * 1000).getDay()], dayHigh: Math.round(data.daily.data[3].temperatureMax).toString().concat('°'), dayLow: Math.round(data.daily.data[3].temperatureMin).toString().concat('°')});
 
-              function nameOfDay(day){
-                if(day)
-              }
-
-              $scope.tomorrow = days.tomorrow;
-              $scope.twoDays = days.twoDays;
-              $scope.threeDays = days.threeDays;
+              $scope.tomorrow = days[0];
+              $scope.twoDays = days[1];
+              $scope.threeDays = days[2];
 
               $scope.data = data;
               console.log($scope.data);
@@ -100,6 +96,6 @@
           });
         }
 
-        // $scope.init();
+        $scope.init();
     });
 })();
