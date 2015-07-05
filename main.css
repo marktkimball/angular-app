@@ -25,6 +25,10 @@ li{
   margin: 10px;
 }
 
+p{
+  font-size: 1.25em;
+}
+
 .form-control{
   color: #000;
   width: 45%;
@@ -34,6 +38,10 @@ li{
 .fiveDayForecast{
   display:inline-block;
   font-size: 2em;
+}
+
+.fiveDayForecast p{
+  font-size: .65em;
 }
 
 .clearDay, .clearNight, .rain, .snow, .sleet, .wind, .fog, .cloudy, .partlyCloudyDay, .partlyCloudyNight{
