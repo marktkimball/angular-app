@@ -16,6 +16,10 @@ body{
   margin-top: 10px;
 }
 
+.nav li{
+  width: 48%;
+}
+
 ul{
   list-style: none;
   padding: 0;
@@ -44,13 +48,17 @@ p{
   margin: auto;
 }
 
-.fiveDayForecast{
+.detailForecast{
   display:inline-block;
   font-size: 2em;
 }
 
-.fiveDayForecast p{
+.detailForecast p{
   font-size: .65em;
+}
+
+.btn:hover{
+  color: #377BB5;
 }
 
 .clearDay, .clearNight, .rain, .snow, .sleet, .wind, .fog, .cloudy, .partlyCloudyDay, .partlyCloudyNight{

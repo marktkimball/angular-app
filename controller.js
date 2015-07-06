@@ -2,9 +2,16 @@
   'use strict';
   angular
     .module('weatherApp')
-    .controller('MainController', function($scope, $sce, WeatherService){
+
+    .controller('MainController', function($scope, WeatherService){
+
         $scope.init = function(){
           $scope.getCurrentLocationWeather();
+        }
+
+        $scope.getAddress = function(newAddress){
+          $scope.getWeather(newAddress);
+          this.address = "";
         }
 
         $scope.getWeather = function(newAddress){
@@ -89,8 +96,6 @@
           $scope.threeDays = days[3];
           $scope.fourDays = days[4];
 
-          $scope.hourlyLink = $sce.trustAsHtml("<a href='#hourly'>Hourly Forecast</a>");
-
           var hoursOfDay = {
             0: "12 AM",
             1: "1 AM",
@@ -137,10 +142,20 @@
           $scope.fiveHour = hours[4];
           $scope.sixHour = hours[5];
           $scope.sevenHour = hours[6];
-
-          $scope.currentWeatherLink = $sce.trustAsHtml("<a href='#/'>Current Weather</a>");
         }
 
         $scope.init();
+    })
+
+    .controller('TabController', function(){
+      this.tab = 1;
+
+      this.selectTab = function(setTab){
+        this.tab = setTab;
+      };
+
+      this.isSelected = function(checkTab){
+        return this.tab === checkTab;
+      };
     });
 })();
