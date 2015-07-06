@@ -84,7 +84,7 @@
 
           var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
           var days = [];
-          for(var i = 0; i < 5; i++){
+          for(var i = 0; i < 6; i++){
             days.push({day: daysOfWeek[new Date(data.daily.data[i].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[i].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[i].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[i].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[i].precipProbability * 100)).toString().concat('%')});
           };
 
