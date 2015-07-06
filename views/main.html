@@ -12,49 +12,13 @@
     <p>{{precipProbability}}</p>
     <p>{{summary}}</p>
     <ul>
-      <li class="detailForecast">
+      <li class="detailForecast" ng-repeat = "day in days">
         <ul>
-          <li>{{today.day}}</li>
-          <li ng-class="tomorrow.dailyIcon === 'clear-day' ? 'clearDay' : tomorrow.dailyIcon === 'clear-night' ? 'clearNight' : tomorrow.dailyIcon === 'rain' ? 'rain' : tomorrow.dailyIcon === 'snow' ? 'snow' : tomorrow.dailyIcon === 'sleet' ? 'sleet' : tomorrow.dailyIcon === 'wind' ? 'wind' : tomorrow.dailyIcon === 'fog' ? 'fog' : tomorrow.dailyIcon === 'cloudy' ? 'cloudy' : tomorrow.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : tomorrow.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
-          <li>{{today.dayHigh}}</li>
-          <li>{{today.dayLow}}</li>
-          <li><p>{{today.dailyPrecip}}</p></li>
-        </ul>
-      </li>
-      <li class="detailForecast">
-        <ul>
-          <li>{{tomorrow.day}}</li>
-          <li ng-class="tomorrow.dailyIcon === 'clear-day' ? 'clearDay' : tomorrow.dailyIcon === 'clear-night' ? 'clearNight' : tomorrow.dailyIcon === 'rain' ? 'rain' : tomorrow.dailyIcon === 'snow' ? 'snow' : tomorrow.dailyIcon === 'sleet' ? 'sleet' : tomorrow.dailyIcon === 'wind' ? 'wind' : tomorrow.dailyIcon === 'fog' ? 'fog' : tomorrow.dailyIcon === 'cloudy' ? 'cloudy' : tomorrow.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : tomorrow.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
-          <li>{{tomorrow.dayHigh}}</li>
-          <li>{{tomorrow.dayLow}}</li>
-          <li><p>{{tomorrow.dailyPrecip}}</p></li>
-        </ul>
-      </li>
-      <li class="detailForecast">
-        <ul>
-          <li>{{twoDays.day}}</li>
-          <li ng-class="twoDays.dailyIcon === 'clear-day' ? 'clearDay' : twoDays.dailyIcon === 'clear-night' ? 'clearNight' : twoDays.dailyIcon === 'rain' ? 'rain' : twoDays.dailyIcon === 'snow' ? 'snow' : twoDays.dailyIcon === 'sleet' ? 'sleet' : twoDays.dailyIcon === 'wind' ? 'wind' : twoDays.dailyIcon === 'fog' ? 'fog' : twoDays.dailyIcon === 'cloudy' ? 'cloudy' : twoDays.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : twoDays.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
-          <li>{{twoDays.dayHigh}}</li>
-          <li>{{twoDays.dayLow}}</li>
-          <li><p>{{twoDays.dailyPrecip}}</p></li>
-        </ul>
-      </li>
-      <li class="detailForecast">
-        <ul>
-          <li>{{threeDays.day}}</li>
-          <li ng-class="threeDays.dailyIcon === 'clear-day' ? 'clearDay' : threeDays.dailyIcon === 'clear-night' ? 'clearNight' : threeDays.dailyIcon === 'rain' ? 'rain' : threeDays.dailyIcon === 'snow' ? 'snow' : threeDays.dailyIcon === 'sleet' ? 'sleet' : threeDays.dailyIcon === 'wind' ? 'wind' : threeDays.dailyIcon === 'fog' ? 'fog' : threeDays.dailyIcon === 'cloudy' ? 'cloudy' : threeDays.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : threeDays.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
-          <li>{{threeDays.dayHigh}}</li>
-          <li>{{threeDays.dayLow}}</li>
-          <li><p>{{threeDays.dailyPrecip}}</p></li>
-        </ul>
-      </li>
-      <li class="detailForecast">
-        <ul>
-          <li>{{fourDays.day}}</li>
-          <li ng-class="fourDays.dailyIcon === 'clear-day' ? 'clearDay' : fourDays.dailyIcon === 'clear-night' ? 'clearNight' : fourDays.dailyIcon === 'rain' ? 'rain' : fourDays.dailyIcon === 'snow' ? 'snow' : fourDays.dailyIcon === 'sleet' ? 'sleet' : fourDays.dailyIcon === 'wind' ? 'wind' : fourDays.dailyIcon === 'fog' ? 'fog' : fourDays.dailyIcon === 'cloudy' ? 'cloudy' : fourDays.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : fourDays.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
-          <li>{{fourDays.dayHigh}}</li>
-          <li>{{fourDays.dayLow}}</li>
-          <li><p>{{fourDays.dailyPrecip}}</p></li>
+          <li>{{day.day}}</li>
+          <li ng-class="day.dailyIcon === 'clear-day' ? 'clearDay' : day.dailyIcon === 'clear-night' ? 'clearNight' : day.dailyIcon === 'rain' ? 'rain' : day.dailyIcon === 'snow' ? 'snow' : day.dailyIcon === 'sleet' ? 'sleet' : day.dailyIcon === 'wind' ? 'wind' : day.dailyIcon === 'fog' ? 'fog' : day.dailyIcon === 'cloudy' ? 'cloudy' : day.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : day.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
+          <li>{{day.dayHigh}}</li>
+          <li>{{day.dayLow}}</li>
+          <li><p>{{day.dailyPrecip}}</p></li>
         </ul>
       </li>
     </ul>
@@ -68,15 +32,15 @@
   <div class="hourlyView" ng-show = "tab.isSelected(2)">
   <h3>{{displayLocation}}</h3>
     <ul>
-      <li class="detailForecast">
+      <li class="detailForecast" ng-repeat = "hour in hours">
         <ul>
-          <li>{{oneHour.hour}}</li>
-          <li ng-class="oneHour.hourIcon === 'clear-day' ? 'clearDay' : oneHour.hourIcon === 'clear-night' ? 'clearNight' : oneHour.hourIcon === 'rain' ? 'rain' : oneHour.hourIcon === 'snow' ? 'snow' : oneHour.hourIcon === 'sleet' ? 'sleet' : oneHour.hourIcon === 'wind' ? 'wind' : oneHour.hourIcon === 'fog' ? 'fog' : oneHour.hourIcon === 'cloudy' ? 'cloudy' : oneHour.hourIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : oneHour.hourIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
-          <li>{{oneHour.hourTemp}}</li>
-          <li><p>{{oneHour.hourPrecip}}</p></li>
+          <li>{{hour.hour}}</li>
+          <li ng-class="hour.hourIcon === 'clear-day' ? 'clearDay' : hour.hourIcon === 'clear-night' ? 'clearNight' : hour.hourIcon === 'rain' ? 'rain' : hour.hourIcon === 'snow' ? 'snow' : hour.hourIcon === 'sleet' ? 'sleet' : hour.hourIcon === 'wind' ? 'wind' : hour.hourIcon === 'fog' ? 'fog' : hour.hourIcon === 'cloudy' ? 'cloudy' : hour.hourIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : hour.hourIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
+          <li>{{hour.hourTemp}}</li>
+          <li><p>{{hour.hourPrecip}}</p></li>
         </ul>
       </li>
-      <li class="detailForecast">
+      <!-- <li class="detailForecast">
         <ul>
           <li>{{twoHour.hour}}</li>
           <li ng-class="twoHour.hourIcon === 'clear-day' ? 'clearDay' : twoHour.hourIcon === 'clear-night' ? 'clearNight' : twoHour.hourIcon === 'rain' ? 'rain' : twoHour.hourIcon === 'snow' ? 'snow' : twoHour.hourIcon === 'sleet' ? 'sleet' : twoHour.hourIcon === 'wind' ? 'wind' : twoHour.hourIcon === 'fog' ? 'fog' : twoHour.hourIcon === 'cloudy' ? 'cloudy' : twoHour.hourIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : twoHour.hourIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
@@ -123,7 +87,7 @@
           <li>{{sevenHour.hourTemp}}</li>
           <li><p>{{sevenHour.hourPrecip}}</p></li>
         </ul>
-      </li>
+      </li> -->
     </ul>
   </div>
 </div>

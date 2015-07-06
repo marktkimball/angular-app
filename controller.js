@@ -84,17 +84,11 @@
 
           var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
           var days = [];
-          days.push({day: daysOfWeek[new Date(data.daily.data[0].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[0].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[0].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[0].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[0].precipProbability * 100)).toString().concat('%')});
-          days.push({day: daysOfWeek[new Date(data.daily.data[1].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[1].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[1].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[1].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[1].precipProbability * 100)).toString().concat('%')});
-          days.push({day: daysOfWeek[new Date(data.daily.data[2].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[2].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[2].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[2].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[2].precipProbability * 100)).toString().concat('%')});
-          days.push({day: daysOfWeek[new Date(data.daily.data[3].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[3].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[3].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[3].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[3].precipProbability * 100)).toString().concat('%')});
-          days.push({day: daysOfWeek[new Date(data.daily.data[4].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[4].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[4].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[4].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[4].precipProbability * 100)).toString().concat('%')});
+          for(var i = 0; i < 5; i++){
+            days.push({day: daysOfWeek[new Date(data.daily.data[i].time * 1000).getDay()], dayHigh: "High " + Math.round(data.daily.data[i].temperatureMax).toString().concat('°'), dayLow: "Low " + Math.round(data.daily.data[i].temperatureMin).toString().concat('°'), dailyIcon: data.daily.data[i].icon, dailyPrecip: "Precip. " + (Math.round(data.daily.data[i].precipProbability * 100)).toString().concat('%')});
+          };
 
-          $scope.today = days[0]
-          $scope.tomorrow = days[1];
-          $scope.twoDays = days[2];
-          $scope.threeDays = days[3];
-          $scope.fourDays = days[4];
+          $scope.days = days;
 
           var hoursOfDay = {
             0: "12 AM",
@@ -125,23 +119,11 @@
           }
 
           var hours = [];
+          for(var j = 0; j < 7; j++){
+            hours.push({hour: hoursOfDay[new Date(data.hourly.data[j].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[j].temperature).toString().concat('°'), hourIcon: data.hourly.data[j].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[j].precipProbability * 100)).toString().concat('%')});
+          };
 
-          hours.push({hour: hoursOfDay[new Date(data.hourly.data[0].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[0].temperature).toString().concat('°'), hourIcon: data.hourly.data[0].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[0].precipProbability * 100)).toString().concat('%')});
-          hours.push({hour: hoursOfDay[new Date(data.hourly.data[1].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[1].temperature).toString().concat('°'), hourIcon: data.hourly.data[1].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[1].precipProbability * 100)).toString().concat('%')});
-          hours.push({hour: hoursOfDay[new Date(data.hourly.data[2].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[2].temperature).toString().concat('°'), hourIcon: data.hourly.data[2].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[2].precipProbability * 100)).toString().concat('%')});
-          hours.push({hour: hoursOfDay[new Date(data.hourly.data[3].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[3].temperature).toString().concat('°'), hourIcon: data.hourly.data[3].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[3].precipProbability * 100)).toString().concat('%')});
-          hours.push({hour: hoursOfDay[new Date(data.hourly.data[4].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[4].temperature).toString().concat('°'), hourIcon: data.hourly.data[4].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[4].precipProbability * 100)).toString().concat('%')});
-          hours.push({hour: hoursOfDay[new Date(data.hourly.data[5].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[5].temperature).toString().concat('°'), hourIcon: data.hourly.data[5].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[5].precipProbability * 100)).toString().concat('%')});
-          hours.push({hour: hoursOfDay[new Date(data.hourly.data[6].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[6].temperature).toString().concat('°'), hourIcon: data.hourly.data[6].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[6].precipProbability * 100)).toString().concat('%')});
-          hours.push({hour: hoursOfDay[new Date(data.hourly.data[7].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[7].temperature).toString().concat('°'), hourIcon: data.hourly.data[7].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[7].precipProbability * 100)).toString().concat('%')});
-
-          $scope.oneHour = hours[0];
-          $scope.twoHour = hours[1];
-          $scope.threeHour = hours[2];
-          $scope.fourHour = hours[3];
-          $scope.fiveHour = hours[4];
-          $scope.sixHour = hours[5];
-          $scope.sevenHour = hours[6];
+          $scope.hours = hours;
         }
 
         $scope.init();
