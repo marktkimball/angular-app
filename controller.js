@@ -141,6 +141,6 @@
           $scope.currentWeatherLink = $sce.trustAsHtml("<a href='#/'>Current Weather</a>");
         }
 
-        $scope.init();
+        // $scope.init();
     });
 })();
