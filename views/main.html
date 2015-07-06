@@ -53,6 +53,7 @@
       </ul>
     </li>
   </ul>
+  <p ng-bind-html="hourlyLink"></p>
   <ul>
     <li><input class="form-control" type="text" name="getAddress" value="" placeholder="Search city, zip or place" ng-model="address" ng-keyup="$event.keyCode == 13 && getWeather(address)"></li>
     <li><button class="btn btn-default" type="button" name="button" ng-click="getWeather(address)">Submit Request</button></li>

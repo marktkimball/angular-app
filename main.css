@@ -25,6 +25,15 @@ li{
   margin: 10px;
 }
 
+a{
+  color: #FFF;
+}
+
+a:hover{
+  color: #377BB5;
+  text-decoration: none;
+}
+
 p{
   font-size: 1.25em;
 }

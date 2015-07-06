@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('weatherApp')
-    .controller('MainController', function($scope, WeatherService){
+    .controller('MainController', function($scope, $sce, WeatherService){
         $scope.init = function(){
           $scope.getCurrentLocationWeather();
         }
@@ -30,7 +30,6 @@
                   };
                 }
                 $scope.displayLocation = displayLocation;
-                console.log($scope.displayLocation);
                 $scope.data = data;
                 var currentTemperature = data.currently.temperature;
                 currentTemperature = Math.round(currentTemperature).toString().concat('°');
@@ -58,8 +57,9 @@
                 $scope.threeDays = days[3];
                 $scope.fourDays = days[4];
 
-                $scope.data = data;
-                console.log($scope.data);
+                $scope.hourlyLink = $sce.trustAsHtml("<a href='#hourly'>Hourly Forecast</a>");
+
+                $scope.currentWeatherLink = $sce.trustAsHtml("<a href='#/'>Current Weather</a>");
               });
             }
           });
@@ -83,7 +83,6 @@
                 }
               }
               $scope.displayLocation = displayLocation;
-              console.log($scope.displayLocation);
             });
 
             WeatherService.read(lat, lng).success(function(data){
@@ -113,8 +112,56 @@
               $scope.threeDays = days[3];
               $scope.fourDays = days[4];
 
-              $scope.data = data;
-              console.log($scope.data);
+              $scope.hourlyLink = $sce.trustAsHtml("<a href='#hourly'>Hourly Forecast</a>");
+
+              var hoursOfDay = {
+                0: "12 AM",
+                1: "1 AM",
+                2: "2 AM",
+                3: "3 AM",
+                4: "4 AM",
+                5: "5 AM",
+                6: "6 AM",
+                7: "7 AM",
+                8: "8 AM",
+                9: "9 AM",
+                10: "10 AM",
+                11: "11 AM",
+                12: "12 PM",
+                13: "1 PM",
+                14: "2 PM",
+                15: "3 PM",
+                16: "4 PM",
+                17: "5 PM",
+                18: "6 PM",
+                19: "7 PM",
+                20: "8 PM",
+                21: "9 PM",
+                22: "10 PM",
+                23: "11 PM",
+                24: "12 PM"
+              }
+
+              var hours = [];
+
+              hours.push({hour: hoursOfDay[new Date(data.hourly.data[0].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[0].temperature).toString().concat('°'), hourIcon: data.hourly.data[0].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[0].precipProbability * 100)).toString().concat('%')});
+              hours.push({hour: hoursOfDay[new Date(data.hourly.data[1].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[1].temperature).toString().concat('°'), hourIcon: data.hourly.data[1].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[1].precipProbability * 100)).toString().concat('%')});
+              hours.push({hour: hoursOfDay[new Date(data.hourly.data[2].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[2].temperature).toString().concat('°'), hourIcon: data.hourly.data[2].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[2].precipProbability * 100)).toString().concat('%')});
+              hours.push({hour: hoursOfDay[new Date(data.hourly.data[3].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[3].temperature).toString().concat('°'), hourIcon: data.hourly.data[3].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[3].precipProbability * 100)).toString().concat('%')});
+              hours.push({hour: hoursOfDay[new Date(data.hourly.data[4].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[4].temperature).toString().concat('°'), hourIcon: data.hourly.data[4].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[4].precipProbability * 100)).toString().concat('%')});
+              hours.push({hour: hoursOfDay[new Date(data.hourly.data[5].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[5].temperature).toString().concat('°'), hourIcon: data.hourly.data[5].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[5].precipProbability * 100)).toString().concat('%')});
+              hours.push({hour: hoursOfDay[new Date(data.hourly.data[6].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[6].temperature).toString().concat('°'), hourIcon: data.hourly.data[6].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[6].precipProbability * 100)).toString().concat('%')});
+              hours.push({hour: hoursOfDay[new Date(data.hourly.data[7].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[7].temperature).toString().concat('°'), hourIcon: data.hourly.data[7].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[7].precipProbability * 100)).toString().concat('%')});
+
+              $scope.oneHour = hours[0];
+              $scope.twoHour = hours[1];
+              $scope.threeHour = hours[2];
+              $scope.fourHour = hours[3];
+              $scope.fiveHour = hours[4];
+              $scope.sixHour = hours[5];
+              $scope.sevenHour = hours[6];
+
+              $scope.currentWeatherLink = $sce.trustAsHtml("<a href='#/'>Current Weather</a>");
             });
           });
         }
