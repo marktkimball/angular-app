@@ -20,11 +20,11 @@
               WeatherService.read(latitude, longitude).success(function(data){
                 var displayLocation = "";
                 if(results.length === 1){
-                  displayLocation = results[0].formatted_address;
+                  $scope.displayLocation = results[0].formatted_address;
                 }else{
                   for(var i = 0; i < results.length; i++){
                     if(results[i].types[0] === "locality"){
-                      displayLocation = results[i].formatted_address;
+                      $scope.displayLocation = results[i].formatted_address;
                       break;
                     }
                   };
