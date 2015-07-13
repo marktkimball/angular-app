@@ -1,0 +1,26 @@
+<ion-view view-title="Current Weather">
+  <ion-content class="padding">
+
+    <div class="list card">
+      <div class="item item-divider">{{displayLocation}}</div>
+      <div class="item item-body">
+        <div>
+          <div ng-class="icon === 'clear-day' ? 'clearDay' : icon === 'clear-night' ? 'clearNight' : icon === 'rain' ? 'rain' : icon === 'snow' ? 'snow' : icon === 'sleet' ? 'sleet' : icon === 'wind' ? 'wind' : icon === 'fog' ? 'fog' : icon === 'cloudy' ? 'cloudy' : icon === 'partly-cloudy-day' ? 'partlyCloudyDay' : icon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></div>
+          <p><b>{{currentTemperature}}</b></p>
+          <p>{{apparentTemperature}}</p>
+          <p>{{precipProbability}}</p>
+          <p>{{summary}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="Search city, zip or place" ng-model="address">
+      </label>
+      <button class="button button-positive" ng-click="getAddress(address)">
+        Submit
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

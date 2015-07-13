@@ -1,0 +1,66 @@
+/* Empty. Add your own CSS if you like */
+.clearDay, .clearNight, .rain, .snow, .sleet, .wind, .fog, .cloudy, .partlyCloudyDay, .partlyCloudyNight{
+  background-image: url(../../../assets/weatherSprite.png);
+  background-repeat: no-repeat;
+  margin: auto;
+}
+
+.clearDay{
+  background-position: -212px -297px;
+  width: 70px;
+  height: 75px;
+}
+
+.clearNight{
+  background-position: -282px -297px;
+  width: 70px;
+  height: 75px;
+}
+
+.rain{
+  background-position: -284px -367px;
+  width: 70px;
+  height: 75px;
+}
+
+.snow{
+  background-position: -140px -440px;
+  width: 70px;
+  height: 75px;
+}
+
+.sleet{
+  background-position: -212px -441px;
+  width: 70px;
+  height: 75px;
+}
+
+.wind{
+  background-position: -355px -6px;
+  width: 70px;
+  height: 75px;
+}
+
+.fog{
+  background-position: 4px -150px;
+  width: 70px;
+  height: 75px;
+}
+
+.cloudy{
+  background-position: -284px -440px;
+  width: 70px;
+  height: 75px;
+}
+
+.partlyCloudyDay{
+  background-position: -355px -296px;
+  width: 70px;
+  height: 75px;
+}
+
+.partlyCloudyNight{
+  background-position: 4px -369px;
+  width: 70px;
+  height: 75px;
+}

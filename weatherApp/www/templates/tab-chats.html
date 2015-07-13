@@ -1,0 +1,30 @@
+<ion-view view-title="Hourly Forecast">
+  <ion-content>
+    {{currentTemperature}}
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="day in days" type="item-text-wrap">
+        <div ng-class="day.dailyIcon === 'clear-day' ? 'clearDay' : day.dailyIcon === 'clear-night' ? 'clearNight' : day.dailyIcon === 'rain' ? 'rain' : day.dailyIcon === 'snow' ? 'snow' : day.dailyIcon === 'sleet' ? 'sleet' : day.dailyIcon === 'wind' ? 'wind' : day.dailyIcon === 'fog' ? 'fog' : day.dailyIcon === 'cloudy' ? 'cloudy' : day.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : day.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></div>
+        <h2>{{day.day}}</h2>
+        <p>{{day.dayHigh}}</p>
+        <p>{{day.dayLow}}</p>
+        <p>{{day.dayPrecip}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+
+<!-- <li class="detailForecast" ng-repeat = "day in days">
+  <ul>
+    <li>{{day.day}}</li>
+    <li ng-class="day.dailyIcon === 'clear-day' ? 'clearDay' : day.dailyIcon === 'clear-night' ? 'clearNight' : day.dailyIcon === 'rain' ? 'rain' : day.dailyIcon === 'snow' ? 'snow' : day.dailyIcon === 'sleet' ? 'sleet' : day.dailyIcon === 'wind' ? 'wind' : day.dailyIcon === 'fog' ? 'fog' : day.dailyIcon === 'cloudy' ? 'cloudy' : day.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : day.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
+    <li>{{day.dayHigh}}</li>
+    <li>{{day.dayLow}}</li>
+    <li><p>{{day.dailyPrecip}}</p></li>
+  </ul>
+</li> -->
