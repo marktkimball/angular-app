@@ -36,7 +36,8 @@
                     }
                   };
                 }
-                weatherFunction(data);
+                var newData = WeatherService.getUseData();
+                weatherFunction(newData);
               });
             }
           });
@@ -63,7 +64,8 @@
             });
 
             WeatherService.read(lat, lng).success(function(data){
-                weatherFunction(data);
+              var newData = WeatherService.getUseData();
+              weatherFunction(newData);
               }
             );
           });

@@ -10,12 +10,16 @@
       var getWeather = function(lat, long){
         return $http.jsonp(url + '/' + lat + ',' + long + '?callback=JSON_CALLBACK').success(function(data){
           useData = data;
-          console.log(useData);
         });
       };
 
+      var getUseData = function(){
+        return useData;
+      }
+
       return{
-        read: getWeather
+        read: getWeather,
+        getUseData: getUseData
       };
     });
 
