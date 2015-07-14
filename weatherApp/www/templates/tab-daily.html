@@ -1,0 +1,13 @@
+<ion-view view-title="Daily Forecast">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="day in days" type="item-text-wrap">
+        <h1>{{day.day}}</h1>
+        <div ng-class="day.dailyIcon === 'clear-day' ? 'clearDay' : day.dailyIcon === 'clear-night' ? 'clearNight' : day.dailyIcon === 'rain' ? 'rain' : day.dailyIcon === 'snow' ? 'snow' : day.dailyIcon === 'sleet' ? 'sleet' : day.dailyIcon === 'wind' ? 'wind' : day.dailyIcon === 'fog' ? 'fog' : day.dailyIcon === 'cloudy' ? 'cloudy' : day.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : day.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></div>
+        <p>{{day.dayHigh}}</p>
+        <p>{{day.dayLow}}</p>
+        <p>{{day.dayPrecip}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,6 +1,20 @@
 /* Empty. Add your own CSS if you like */
+.list{
+  text-align: center;
+}
+
+.button-positive{
+  width:80%;
+  margin-top: 10px;
+}
+
+.item-input{
+  width: 80%;
+  margin:auto;
+}
+
 .clearDay, .clearNight, .rain, .snow, .sleet, .wind, .fog, .cloudy, .partlyCloudyDay, .partlyCloudyNight{
-  background-image: url(../../../assets/weatherSprite.png);
+  background-image: url(../img/weatherSprite.png);
   background-repeat: no-repeat;
   margin: auto;
 }

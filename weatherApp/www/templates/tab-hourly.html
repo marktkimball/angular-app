@@ -1,0 +1,12 @@
+<ion-view view-title="Hourly Forecast">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="hour in hours" type="item-text-wrap">
+        <div ng-class="hour.hourIcon === 'clear-hour' ? 'clearDay' : hour.hourIcon === 'clear-night' ? 'clearNight' : hour.hourIcon === 'rain' ? 'rain' : hour.hourIcon === 'snow' ? 'snow' : hour.hourIcon === 'sleet' ? 'sleet' : hour.hourIcon === 'wind' ? 'wind' : hour.hourIcon === 'fog' ? 'fog' : hour.hourIcon === 'cloudy' ? 'cloudy' : hour.hourIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : hour.hourIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></div>
+        <h2>{{hour.hour}}</h2>
+        <p>{{hour.hourTemp}}</p>
+        <p>{{hour.hourPrecip}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
