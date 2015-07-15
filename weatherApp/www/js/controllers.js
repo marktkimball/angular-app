@@ -70,6 +70,7 @@ angular.module('starter.controllers', [])
   }
 
   function weatherFunction(data){
+    console.log(data);
     $scope.data = data;
     var currentTemperature = data.currently.temperature;
     currentTemperature = Math.round(currentTemperature).toString().concat('°');
@@ -147,7 +148,7 @@ angular.module('starter.controllers', [])
     }
 
     var hours = [];
-    for(var j = 0; j < 7; j++){
+    for(var j = 0; j < 12; j++){
       hours.push({hour: hoursOfDay[new Date(data.hourly.data[j].time * 1000).getHours()], hourTemp: Math.round(data.hourly.data[j].temperature).toString().concat('°'), hourIcon: data.hourly.data[j].icon, hourPrecip: "Precip. " + (Math.round(data.hourly.data[j].precipProbability * 100)).toString().concat('%')});
     };
 

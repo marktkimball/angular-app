@@ -1,15 +1,24 @@
 /* Empty. Add your own CSS if you like */
+h1{
+  color:#444;
+}
+
+.loadingSpinner{
+  text-align: center;
+  padding: 80px 0px 80px 0px;
+}
+
 .list{
   text-align: center;
 }
 
 .button-positive{
-  width:80%;
+  width:90%;
   margin-top: 10px;
 }
 
 .item-input{
-  width: 80%;
+  width: 90%;
   margin:auto;
 }
 
