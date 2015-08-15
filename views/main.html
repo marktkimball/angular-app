@@ -5,6 +5,7 @@
     <li ng-class="{active : tab.isSelected(2)}"><a href="" ng-click = "tab.selectTab(2)">Hourly Forecast</a></li>
   </ul>
   <div class="currentView" ng-show = "tab.isSelected(1)">
+    <i ng-if="!data" class="ion-load-c"></i>
     <h3>{{displayLocation}}</h3>
     <div ng-class="icon === 'clear-day' ? 'clearDay' : icon === 'clear-night' ? 'clearNight' : icon === 'rain' ? 'rain' : icon === 'snow' ? 'snow' : icon === 'sleet' ? 'sleet' : icon === 'wind' ? 'wind' : icon === 'fog' ? 'fog' : icon === 'cloudy' ? 'cloudy' : icon === 'partly-cloudy-day' ? 'partlyCloudyDay' : icon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></div>
     <h1>{{currentTemperature}}</h1>
