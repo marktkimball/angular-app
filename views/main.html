@@ -1,6 +1,6 @@
 <div class='weatherView' ng-controller = "TabController as tab">
   <h1>Weather AngularJS</h1>
-  <ul class="nav nav-tabs">
+  <ul class="nav nav-tabs nav-justified">
     <li ng-class="{active : tab.isSelected(1)}"><a href="" ng-click = "tab.selectTab(1)">Current Weather</a></li>
     <li ng-class="{active : tab.isSelected(2)}"><a href="" ng-click = "tab.selectTab(2)">Hourly Forecast</a></li>
   </ul>
@@ -11,17 +11,30 @@
     <p>{{apparentTemperature}}</p>
     <p>{{precipProbability}}</p>
     <p>{{summary}}</p>
-    <ul>
-      <li class="detailForecast" ng-repeat = "day in days">
-        <ul>
-          <li>{{day.day}}</li>
-          <li ng-class="day.dailyIcon === 'clear-day' ? 'clearDay' : day.dailyIcon === 'clear-night' ? 'clearNight' : day.dailyIcon === 'rain' ? 'rain' : day.dailyIcon === 'snow' ? 'snow' : day.dailyIcon === 'sleet' ? 'sleet' : day.dailyIcon === 'wind' ? 'wind' : day.dailyIcon === 'fog' ? 'fog' : day.dailyIcon === 'cloudy' ? 'cloudy' : day.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : day.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
-          <li>{{day.dayHigh}}</li>
-          <li>{{day.dayLow}}</li>
-          <li><p>{{day.dailyPrecip}}</p></li>
-        </ul>
-      </li>
-    </ul>
+    <div class="forecastBox">
+      <ul class="forecast">
+        <li class="detailForecast" ng-repeat = "day in days | limitTo: 3">
+          <ul>
+            <li class="day">{{day.day}}</li>
+            <li ng-class="day.dailyIcon === 'clear-day' ? 'clearDay' : day.dailyIcon === 'clear-night' ? 'clearNight' : day.dailyIcon === 'rain' ? 'rain' : day.dailyIcon === 'snow' ? 'snow' : day.dailyIcon === 'sleet' ? 'sleet' : day.dailyIcon === 'wind' ? 'wind' : day.dailyIcon === 'fog' ? 'fog' : day.dailyIcon === 'cloudy' ? 'cloudy' : day.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : day.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
+            <li>{{day.dayHigh}}</li>
+            <li>{{day.dayLow}}</li>
+            <li><p>{{day.dailyPrecip}}</p></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="forecast">
+        <li class="detailForecast" ng-repeat = "day in days | limitTo: -3">
+          <ul>
+            <li class="day">{{day.day}}</li>
+            <li ng-class="day.dailyIcon === 'clear-day' ? 'clearDay' : day.dailyIcon === 'clear-night' ? 'clearNight' : day.dailyIcon === 'rain' ? 'rain' : day.dailyIcon === 'snow' ? 'snow' : day.dailyIcon === 'sleet' ? 'sleet' : day.dailyIcon === 'wind' ? 'wind' : day.dailyIcon === 'fog' ? 'fog' : day.dailyIcon === 'cloudy' ? 'cloudy' : day.dailyIcon === 'partly-cloudy-day' ? 'partlyCloudyDay' : day.dailyIcon === 'partly-cloudy-night' ? 'partlyCloudyNight' : 'hide'"></li>
+            <li>{{day.dayHigh}}</li>
+            <li>{{day.dayLow}}</li>
+            <li><p>{{day.dailyPrecip}}</p></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
     <ul>
       <li><input class="form-control" type="text" name="getAddress" value="" placeholder="Search city, zip or place" ng-model="address" ng-keyup="$event.keyCode === 13 && getAddress(address)"></li>
       <li><button class="btn btn-default" type="button" name="button" ng-click="getAddress(address)">Submit Request</button></li>
@@ -31,7 +44,7 @@
 
   <div class="hourlyView" ng-show = "tab.isSelected(2)">
   <h3>{{displayLocation}}</h3>
-    <ul>
+    <ul class="hourlyBox">
       <li class="detailForecast" ng-repeat = "hour in hours">
         <ul>
           <li>{{hour.hour}}</li>

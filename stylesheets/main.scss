@@ -6,18 +6,15 @@ body{
 
 .mainContent{
   background:linear-gradient(180deg, #3D5DB4, #131E38);
-  width: 1024px;
+  width:95%;
   margin: auto;
   text-align: center;
+  margin-top:10px;
+  margin-bottom:10px;
 }
 
 .weatherView{
-  padding: 20px 0px 20px 0px;
-  margin-top: 10px;
-}
-
-.nav li{
-  width: 48%;
+  padding: 20px 10px 20px 10px;
 }
 
 ul{
@@ -31,11 +28,10 @@ li{
 
 a{
   color: #FFF;
-}
-
-a:hover{
-  color: #377BB5;
-  text-decoration: none;
+  &:hover{
+    color: #377BB5;
+    text-decoration: none;
+  }
 }
 
 p{
@@ -48,13 +44,43 @@ p{
   margin: auto;
 }
 
+.forecastBox{
+  display:flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.forecast{
+  flex:1;
+  display:flex;
+  justify-content: space-around;
+  li{
+    flex:1;
+  }
+  .day{
+    &:before {
+      content: "";
+      margin-left: -100%;
+    }
+    &:after {
+      content: "";
+      margin-right: -100%;
+    }
+  }
+}
+
 .detailForecast{
   display:inline-block;
   font-size: 2em;
+  p{
+    font-size: .65em;
+  }
 }
 
-.detailForecast p{
-  font-size: .65em;
+.hourlyBox{
+  display:flex;
+  justify-content: center;
+  flex-wrap:wrap;
 }
 
 .btn:hover{
@@ -62,7 +88,7 @@ p{
 }
 
 .clearDay, .clearNight, .rain, .snow, .sleet, .wind, .fog, .cloudy, .partlyCloudyDay, .partlyCloudyNight{
-  background-image: url(assets/weatherSprite.png);
+  background-image: url(../assets/weatherSprite.png);
   background-repeat: no-repeat;
   margin: auto;
 }
@@ -127,8 +153,39 @@ p{
   height: 75px;
 }
 
-
-
 .hide{
   display: none;
+}
+
+/********************
+MEDIA QUERIES
+********************/
+@media screen and (max-width:1050px){
+  .forecastBox{
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width:768px){
+  .nav-tabs.nav-justified{
+    border-bottom: 1px solid #DDD;
+  }
+  .form-control{
+    width:70%;
+  }
+}
+
+@media screen and (max-width:500px){
+  .forecast{
+    flex-direction: column;
+  }
+  .form-control{
+    width:90%;
+  }
+}
+
+@media screen and (max-width:350px){
+  .hourlyBox{
+    flex-direction: column;
+  }
 }
